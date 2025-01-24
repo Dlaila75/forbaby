@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Gift Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffe4e1;
+      text-align: center;
+    }
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      display: none; /* Hidden by default */
+    }
+    .hidden {
+      display: none;
+    }
+    .content {
+      display: none; /* Hidden by default */
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 3em;
+      color: #d63384;
+      margin: 20px 0;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .card {
+      position: relative;
+      cursor: pointer;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .card img:hover {
+      transform: scale(1.05);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+    }
+    .modal-content p {
+      margin: 0;
+      font-size: 16px;
+      color: #555;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .start-button {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 15px 30px;
+      font-size: 20px;
+      color: white;
+      background-color: #d63384;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Video -->
+  <video id="videoBackground" class="video-background" autoplay loop>
+    <source src="video/video baby.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Start Button -->
+  <button class="start-button" id="startButton">Click to Start</button>
+
+  <!-- Main Content -->
+  <div class="content" id="mainContent">
+    <h1>HAPPY BIRTHDAY MY LOVE</h1>
+    <div class="container">
+        <!-- 12 Cards -->
+        <div class="card" onclick="openModal(1)">
+          <img src="img/baby 1.jpg" alt="Image 1">
+        </div>
+        <div class="card" onclick="openModal(2)">
+          <img src="img/baby2new.jpg" alt="Image 2">
+        </div>
+        <div class="card" onclick="openModal(3)">
+          <img src="img/baby3.jpg" alt="Image 3">
+        </div>
+        <div class="card" onclick="openModal(4)">
+          <img src="img/baby4.jpg" alt="Image 4">
+        </div>
+        <div class="card" onclick="openModal(5)">
+          <img src="img/baby5.jpg" alt="Image 5">
+        </div>
+        <div class="card" onclick="openModal(6)">
+          <img src="img/baby6.jpg" alt="Image 6">
+        </div>
+        <div class="card" onclick="openModal(7)">
+          <img src="img/baby7new.jpg" alt="Image 7">
+        </div>
+        <div class="card" onclick="openModal(8)">
+          <img src="img/baby8.jpg" alt="Image 8">
+        </div>
+        <div class="card" onclick="openModal(9)">
+          <img src="img/baby9.jpg" alt="Image 9">
+        </div>
+        <div class="card" onclick="openModal(10)">
+          <img src="img/baby10.jpg" alt="Image 10">
+        </div>
+        <div class="card" onclick="openModal(11)">
+          <img src="img/baby11.jpg" alt="Image 11">
+        </div>
+        <div class="card" onclick="openModal(12)">
+          <img src="img/baby12.jpg" alt="Image 12">
+        </div>
+      </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <button class="close" onclick="closeModal()">&times;</button>
+        <p id="modalText"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const startButton = document.getElementById('startButton');
+    const videoBackground = document.getElementById('videoBackground');
+    const mainContent = document.getElementById('mainContent');
+
+    startButton.addEventListener('click', () => {
+      startButton.style.display = 'none'; // Hide the button
+      videoBackground.style.display = 'block'; // Show the video background
+      videoBackground.muted = false; // Enable video sound
+      videoBackground.play(); // Start video playback
+      mainContent.style.display = 'block'; // Show the main content
+    });
+
+    const notes = [
+    "Happy Birthday to the love of my life!I hope today brings you joy and happiness as you bring to me everyday",
+    "Another year with you feels like the best gift I could ask for. Wishing you all the love and happiness in the world on your special day!",
+    "To the man who makes my heart skip a beat, happy birthday! May this year be filled with laughter, love, and unforgettable memories",
+    "Happy birthday, babe! I’m so lucky to have you by my side, and I can’t wait to celebrate you today and always",
+    "On your birthday, I want you to know how deeply I love you. You’re everything I ever dreamed of and more",
+    "Happy birthday to the one who knows me better than anyone else! Thank you for filling my life with so much love and happiness",
+    "Every moment with you feels like a celebration, but today is all about you! Wishing you the happiest birthday ever",
+    "You make every day brighter just by being you. Happy birthday to the most amazing boyfriend!",
+    "To the man who has my heart, may this birthday bring you all the joy you deserve and more. Love you endlessly!",
+    "Happy birthday, my love! Every year with you is a gift, and I’m so grateful to share this journey with you",
+    "You’re my favorite reason to smile. Here’s to another year of laughter, love, and growing together. Happy birthday!",
+    "Happy birthday to the one who makes my world a little more magical every day. I hope this year is as amazing as you are!"
+  ];
+
+
+    function openModal(index) {
+      const modal = document.getElementById('modal');
+      const modalText = document.getElementById('modalText');
+      modalText.textContent = notes[index - 1];
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
